@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import FetchHelloWorld from './components/FetchHelloWorld'
-import TodoList from './components/TodoList';
+import React, { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import FetchHelloWorld from "./components/FetchHelloWorld";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [count, setCount] = useState(0);
   const sendCountToServer = async () => {
     try {
-      const response = await fetch('http://localhost:3001/count', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3001/count", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ count })
+        body: JSON.stringify({ count }),
       });
       const data = await response.text();
-      console.log(data);  // Log response from the server
+      console.log(data); // Log response from the server
     } catch (error) {
-      console.error('Failed to send count:', error);
+      console.error("Failed to send count:", error);
     }
   };
 
@@ -27,24 +27,26 @@ function App() {
     <>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => {
-          setCount((count) => count + 1);
-        sendCountToServer();
-        }}>
+        <button
+          onClick={() => {
+            setCount((count) => count + 1);
+            sendCountToServer();
+          }}
+        >
           count is {count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <div className='TextMessage'>
+      <div className="TextMessage">
         <FetchHelloWorld />
       </div>
-      <div  className="App">
+      <div className="App">
         <TodoList />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
