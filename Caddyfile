@@ -1,13 +1,4 @@
 leoyelearn.live {
-    root * /var/www/html
-    file_server
-
-    # Handle ACME HTTP-01 challenge for path starting with .well-known/acme-challenge
-    handle_path /.well-known/acme-challenge/* {
-        root * /var/www/html
-        file_server
-    }
-
     # Reverse proxy rules
     reverse_proxy /api/* backend:3001
     reverse_proxy frontend:3000
