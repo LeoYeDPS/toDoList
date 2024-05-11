@@ -1,0 +1,9 @@
+leoyelearn.live {
+    # Reverse proxy rules
+    reverse_proxy /api/* backend:3001
+    reverse_proxy frontend:3000
+}
+
+api.leoyelearn.live {
+    reverse_proxy backend:3001
+}
