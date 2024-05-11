@@ -4,6 +4,6 @@ leoyelearn.live {
     reverse_proxy frontend:3000
 }
 
-www.leoyelearn.live {
-    redir https://leoyelearn.live{uri}
+api.leoyelearn.live {
+    reverse_proxy backend:3001
 }
