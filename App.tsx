@@ -3,12 +3,8 @@ import "./App.css";
 import FetchHelloWorld from "./components/FetchHelloWorld";
 import TodoList from "./components/TodoList";
 import Header from "./components/Header";
-
-import { Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
 import NavBar from './components/NavBar';
-
+import AppRoutes from './Routes';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,13 +26,33 @@ function App() {
 
   return (
     <>
+
       <div>
-        <h1>Testing App</h1>
+            <Header title="My Application" />
+            {/* other components */}
+        </div>
+      <div className="Navbar">
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+        <AppRoutes />
+      </div>
+      <div className="card">
+        <button
+          onClick={() => {
+            setCount((count) => count + 1);
+            sendCountToServer();
+          }}
+        >
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <div className="TextMessage">
+        <FetchHelloWorld />
+      </div>
+      <div className="App">
+        <TodoList />
       </div>
     </>
   );

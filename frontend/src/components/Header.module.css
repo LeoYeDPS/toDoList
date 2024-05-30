@@ -1,0 +1,9 @@
+.header {
+    position: fixed;
+    top: 0;
+    
+    padding: 10px;
+    text-align: center;
+    
+    z-index: 1000; /* ensures the header is above other content */
+}
